@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2L5aeslpNCpC3jEUnOntg3+zeCQGZrICPOByc7eWzsE82W5fXSZhbIuLm76Q3BoJhDX59vDHYfrp1LXLN0dWVw==",
+  "dgSpecHash": "pA3M5/kuECwbqLUn+0WaHFnW4brpINlIlq8jklOWZqY0tySR52HJSk7KjkLzC8e3bBP+3wpzs04JJ+tl5y+nCg==",
   "success": true,
   "projectFilePath": "C:\\Users\\gabri\\source\\repos\\ACMenu2 - Copia (2) - Copia\\ACMenu2\\ACMenu2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\gabri\\.nuget\\packages\\swed32\\1.0.4\\swed32.1.0.4.nupkg.sha512"
+    "C:\\Users\\gabri\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\swed32\\1.1.0\\swed32.1.1.0.nupkg.sha512"
   ],
   "logs": []
 }

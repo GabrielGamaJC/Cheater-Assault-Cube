@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Swed32;
-using swed32;
+using Swed32;
 
 namespace ACMenu2
 {
     public class methods
     {
-        public swed mem;
+        public Swed mem;
         public Form formulario;
        
         public IntPtr moduleBase;
@@ -46,10 +46,11 @@ namespace ACMenu2
             ent.health = mem.ReadInt(ent.BaseAddress, Offsets.iHealth);
             ent.team = mem.ReadInt(ent.BaseAddress, Offsets.iTeam);
 
-            ent.feet = mem.ReadVector3(entBase, Offsets.vFeet);
-            ent.head = mem.ReadVector3(entBase, Offsets.vHead);
-          
+          //  ent.feet = mem.ReadVector3(entBase, Offsets.vFeet);
+          //  ent.head = mem.ReadVector3(entBase, Offsets.vHead);
 
+            ent.feet = mem.ReadVec(entBase, Offsets.vFeet);
+            ent.head = mem.ReadVec(entBase, Offsets.vHead);
             ent.name = Encoding.UTF8.GetString(mem.ReadBytes(ent.BaseAddress, Offsets.sName,11));
             
             return ent;
@@ -123,6 +124,22 @@ namespace ACMenu2
         {
 
 
+         //   if (ent.xdist <= pixdist)
+         //   {
+                mem.WriteFloat(ent.BaseAddress, Offsets.vAngles, x);
+                mem.WriteFloat(ent.BaseAddress, Offsets.vAngles + 0x4, y);
+          //  }
+          //  else
+          //  {
+
+           // }
+        }
+
+
+        public void aimfov(Entity ent, float x, float y)
+        {
+
+
             if (ent.xdist <= pixdist)
             {
                 mem.WriteFloat(ent.BaseAddress, Offsets.vAngles, x);
@@ -133,6 +150,8 @@ namespace ACMenu2
 
             }
         }
+
+
 
         public static float CalcDist(Entity localPlayer, Entity destEnt)
         {
@@ -168,6 +187,19 @@ namespace ACMenu2
             rect.Height = feet.Y - head.Y;
             return rect;
         }
+
+        public Rectangle CalcRecvida(Point feet, Point head)
+        {
+
+            var rect = new Rectangle();
+            rect.X = head.X - (feet.Y - head.Y) / 4;
+            rect.Y = head.Y;
+
+            rect.Width = (feet.Y - head.Y) / 2 - 50;
+            rect.Height = feet.Y - head.Y;
+            return rect;
+        }
+
 
 
 
@@ -234,8 +266,8 @@ namespace ACMenu2
 
         public methods(int height2, int widht2)
         {
-            mem = new swed();
-            mem.GetProcess("ac_client");
+            mem = new Swed("ac_client");
+          //  mem.GetProcess("ac_client");
             moduleBase = mem.GetModuleBase(".exe");
             height = height2;
             widht = widht2;

@@ -16,5 +16,8 @@ namespace ACMenu2
         public static Boolean health = false;
         public static Boolean ESPVIDA = false;
         public static Boolean ESPNAME = false;
+        public static Boolean esplinetop = false;
+        public static Boolean fovaimbot = false;
+        public static Boolean espfov = false;
     }
 }

@@ -4,20 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
-using Microsoft.VisualBasic.Logging;
 using ezOverLay;
-using System.Security.Permissions;
-using swed32;
-//using Swed32;
+//using swed32;
+using Swed32;
 //using Swed64;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
+using MaterialSkin;
+using MaterialSkin.Controls;
 namespace ACMenu2
 {
     public partial class Form1 : Form
@@ -44,6 +39,9 @@ namespace ACMenu2
         public Boolean health = false;
         public Boolean esphealth = false;
         public Boolean espname = false;
+        public Boolean linetop = false;
+        public Boolean fovaim = false;
+        public Boolean espfov = false;
         public IntPtr ptr;
       
         
@@ -87,14 +85,30 @@ namespace ACMenu2
             {
                 localPlayer = m.ReadLocalPlayer();
                 entities = m.ReadEntities(localPlayer,Height, Width);
+
+                box = variavel.ESPBOX;
+                line = variavel.ESPLINE;
+                aimb = variavel.Aimbot;
+                amigo = variavel.ESPAmigo;
+                // ammo = variavel.ammo;
+                //health = variavel.health;
+                esphealth = variavel.ESPVIDA;
+                espname = variavel.ESPNAME;
+                linetop = variavel.esplinetop;
+                fovaim = variavel.fovaimbot;
+                espfov = variavel.espfov;
+
+
+
                 //foreach (var ent2 in entities)
                 //{
-                   
+
                 //    ent2.xdist = 
                 //}
-                entities = entities.OrderBy(o => o.xdist).ToList();
+
                 if (aimb == true)
                 {
+                    entities = entities.OrderBy(o => o.mag).ToList();
                     if (GetAsyncKeyState(Keys.LShiftKey) < 0)
                 {
                     if (entities.Count > 0)
@@ -105,7 +119,7 @@ namespace ACMenu2
                             {
                                     
                                 var angles = m.CalcAngles(localPlayer, ent);
-                                    if (ent.xdist <= pixdist)
+                                 //   if (ent.xdist <= pixdist)
                                         m.aim(localPlayer, angles.X, angles.Y);
                                 break;
                                 
@@ -115,14 +129,40 @@ namespace ACMenu2
                 }
                }
 
-                box = variavel.ESPBOX;
-                line = variavel.ESPLINE;
-                aimb = variavel.Aimbot;
-                amigo = variavel.ESPAmigo;
-               // ammo = variavel.ammo;
-                //health = variavel.health;
-                esphealth = variavel.ESPVIDA;
-                espname = variavel.ESPNAME;
+
+
+                if (fovaim == true)
+                {
+                    entities = entities.OrderBy(o => o.xdist).ToList();
+                    if (GetAsyncKeyState(Keys.LShiftKey) < 0)
+                    {
+                        if (entities.Count > 0)
+                        {
+                            foreach (var ent in entities)
+                            {
+                                if (ent.team != localPlayer.team)
+                                {
+
+                                    var angles = m.CalcAngles(localPlayer, ent);
+                                    if (ent.xdist <= pixdist)
+                                        m.aimfov(localPlayer, angles.X, angles.Y);
+                                    break;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+              
                // if (ammo == true) 
              //   {
               //      m.mem.WriteBytes(ptr, 0x140, BitConverter.GetBytes(998));
@@ -146,14 +186,16 @@ namespace ACMenu2
             if (ativado == true)
             {
                 // m.mem.WriteBytes(ptr, 0xE4, BitConverter.GetBytes(998));
-                m.mem.WriteBytes(ptr, 0x140, BitConverter.GetBytes(998));
-               // MessageBox.Show("oi");
+                // m.mem.WriteBytes(ptr, 0x140, BitConverter.GetBytes(998));
+                // MessageBox.Show("oi");
                 //  m.mem.WriteBytes(ptr,0xE4)
+
+                m.mem.Nop(ptr, 0xC73EA, 2);
 
             }
             else
             {
-                m.mem.WriteBytes(ptr, 0x140, BitConverter.GetBytes(20));
+                m.mem.WriteBytes(ptr, 0xC73EA, "89 08");
             }
 
         }
@@ -162,26 +204,18 @@ namespace ACMenu2
         public void vidain(bool ativado)
         {
 
-
-            //while(ativado)
-            //{
-
-            //    m.mem.WriteBytes(ptr, 0xEC, BitConverter.GetBytes(4000));
-            //    Thread.Sleep(100);
-            //}
-            //m.mem.WriteBytes(ptr, 0xEC, BitConverter.GetBytes(100));
-
             if (ativado == true)
             {
                 // m.mem.WriteBytes(ptr, 0xE4, BitConverter.GetBytes(998));
-                m.mem.WriteBytes(ptr, 0xEC, BitConverter.GetBytes(4000));
+                //  m.mem.WriteBytes(ptr, 0xEC, BitConverter.GetBytes(4000));
                 // MessageBox.Show("oi");
                 //  m.mem.WriteBytes(ptr,0xE4)
-
+                m.mem.Nop(ptr, 0xC73EF, 2);
+              //  MessageBox.Show("oi");
             }
             else
             {
-                m.mem.WriteBytes(ptr, 0xEC, BitConverter.GetBytes(100));
+                m.mem.WriteBytes(ptr, 0xC73EF, "FF 08");
             }
 
         }
@@ -193,6 +227,7 @@ namespace ACMenu2
         {
             Graphics g = e.Graphics;
             Pen red = new Pen(Color.Red, 2);
+            Pen bluee = new Pen(Color.Blue, 2);
             Pen green = new Pen(Color.Green, 2);
             Font fonte = new Font("Arial", 10, FontStyle.Bold);
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit;
@@ -202,15 +237,14 @@ namespace ACMenu2
             Brush pincelver = new SolidBrush(Color.Red);
             Brush azul = new SolidBrush(Color.Blue);
 
-            Pen fovaim = new Pen(Color.DarkCyan, 2);
+            Pen fovaimcor = new Pen(Color.DarkCyan, 2);
 
-            g.DrawEllipse(fovaim, (Width / 2) - 50, (Height / 2) - 36, 100, 100);
+//            g.DrawEllipse(fovaim, (Width / 2) - 50, (Height / 2) - 36, 100, 100);
 
             // var vida = m.mem.ReadBytes(ptr, 0xE4, 4);
 
 
-
-
+        
 
             foreach (var ent in entities.ToList())
             {
@@ -263,13 +297,13 @@ namespace ACMenu2
                     { 
                         var localvida = wtsHead;
                         localvida.X += 28;
-                        //  local.Y += 40;
-                        //line = true;
+                      
                         if (line == true)
                         {
                             g.DrawLine(red, new Point(Width / 2, Height), wtsFeet);
+                          //  g.DrawLine(red, new Point(Width / 2, 50), wtsFeet);
                             //  g.DrawString(ent.health.ToString(), fonte, pincel, wtsFeet);
-                            
+
                         }
                        if (box == true)
                         {
@@ -280,22 +314,46 @@ namespace ACMenu2
 
                        if(esphealth == true)
                         {
+
+                            //  g.FillRectangle(cor, barX, barY, localvida.Y, barHeight);
+
+                            // Desenhe a barra colorida
+                            //    g.FillRectangle(azul, barX, barY, barWidth, barHeight);
+
+                            // Desenhe a linha que representa a quantidade de 0 a 100
+                            //  g.DrawLine(red, localvida.X, localvida.Y, localvida.X + localvida.Y, localvida.Y);
+                       
+
                             if (ent.health > 80)
                             {
                                 g.DrawString(ent.health.ToString(), fonte, pincel, localvida);
+  
+
                             }
                             else if (ent.health > 40 && ent.health < 80)
                             {
-                                g.DrawString(ent.health.ToString(), fonte, azul, localvida);
+                                 g.DrawString(ent.health.ToString(), fonte, azul, localvida);
+                             
                             }
                             else
                             {
-                                g.DrawString(ent.health.ToString(), fonte, pincelver, localvida);
+                                 g.DrawString(ent.health.ToString(), fonte, pincelver, localvida);
+                            
                             }
                         }
                        if(espname == true)
                         {
                             g.DrawString(ent.name, fonte, cor, wtsFeet);
+
+                        }
+
+                       if(linetop == true)
+                        {
+                            g.DrawLine(red, new Point(Width / 2, 30), wtsHead);
+                        }
+                        if (espfov == true)
+                        {
+                            g.DrawEllipse(fovaimcor, (Width / 2) - 50, (Height / 2) - 36, 100, 100);
 
                         }
                     }

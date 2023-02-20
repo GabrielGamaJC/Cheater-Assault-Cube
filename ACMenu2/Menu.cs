@@ -1,4 +1,5 @@
 ﻿using ezOverLay;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ using System.Windows.Forms;
 using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ACMenu2
 {
-    public partial class Menu : Form
+    public partial class Menu : MaterialForm
     {
         private System.Windows.Forms.Button currentBtn;
         private Panel leftBorderBtn;
@@ -32,21 +35,14 @@ namespace ACMenu2
         public Menu()
         {
             InitializeComponent();
+            var skinmanager = MaterialSkinManager.Instance;
+           
+            skinmanager.Theme = MaterialSkinManager.Themes.DARK;
 
+           skinmanager.ColorScheme = new ColorScheme(Primary.LightBlue900, Primary.LightBlue800, Primary.LightBlue900, Accent.LightBlue700, TextShade.BLACK);
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 45);
-            panel1.Controls.Add(leftBorderBtn);
-            panel4.Controls.Add(esp);
-            panel4.Controls.Add(panel3);
-            panel4.Controls.Add(aimbot);
-            panel4.Controls.Add(functions);
-            panel4.Controls.Add(configpanel);
-            esp.Visible = false;
-            panel3.Visible = false;
-            aimbot.Visible = false;
-            functions.Visible = false;
-            configpanel.Visible = false;
-
+           
         }
 
 
@@ -103,145 +99,145 @@ namespace ACMenu2
           
             }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DisableButton();
-            currentBtn = button1;
-            ActivateButton(sender, RGBColors.color1);
-            label1.Text = "ESP";
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    DisableButton();
+        //    currentBtn = button1;
+        //    ActivateButton(sender, RGBColors.color1);
+        //    label1.Text = "ESP";
             
-            //outros.Visible = false;
-         //   aimbot.Visible = false;
-            esp.Visible = true;
-        }
+        //    //outros.Visible = false;
+        // //   aimbot.Visible = false;
+        //    esp.Visible = true;
+        //}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DisableButton();
-            currentBtn = button2;
-            ActivateButton(sender, RGBColors.color2);
-            label1.Text = "AIMBOT";
-            esp.Visible = false;
-            aimbot.Visible = true;
-            //panel3.Visible = true;
-         //   outros.Visible = false;
-         //   aimbot.Visible = true;
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    DisableButton();
+        //    currentBtn = button2;
+        //    ActivateButton(sender, RGBColors.color2);
+        //    label1.Text = "AIMBOT";
+        //    esp.Visible = false;
+        //    aimbot.Visible = true;
+        //    //panel3.Visible = true;
+        // //   outros.Visible = false;
+        // //   aimbot.Visible = true;
+        //}
 
         private void label2_Click(object sender, EventArgs e)
         {
           Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DisableButton();
-            currentBtn = button3;
-            ActivateButton(sender, RGBColors.color3);
-            label1.Text = "FUNCTIONS";
-            esp.Visible = false;
-            aimbot.Visible = false;
-            functions.Visible = true;
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    DisableButton();
+        //    currentBtn = button3;
+        //    ActivateButton(sender, RGBColors.color3);
+        //    label1.Text = "FUNCTIONS";
+        //    esp.Visible = false;
+        //    aimbot.Visible = false;
+        //    functions.Visible = true;
+        //}
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                variavel.ESPBOX = true;
-            }
-            else
-            {
-                variavel.ESPBOX = false;
-            }
-        }
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox1.Checked == true)
+        //    {
+        //        variavel.ESPBOX = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.ESPBOX = false;
+        //    }
+        //}
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked == true)
-            {
-                variavel.ESPLINE = true;
-            }
-            else
-            {
-                variavel.ESPLINE = false;
-            }
-        }
+        //private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox2.Checked == true)
+        //    {
+        //        variavel.ESPLINE = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.ESPLINE = false;
+        //    }
+        //}
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox3.Checked == true)
-            {
-                variavel.ESPNAME = true;
-            }
-            else
-            {
-                variavel.ESPNAME = false;
-            }
-        }
+        //private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox3.Checked == true)
+        //    {
+        //        variavel.ESPNAME = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.ESPNAME = false;
+        //    }
+        //}
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox5.Checked == true)
-            {
-                variavel.ESPVIDA = true;
-            }
-            else
-            {
-                variavel.ESPVIDA = false;
-            }
-        }
+        //private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox5.Checked == true)
+        //    {
+        //        variavel.ESPVIDA = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.ESPVIDA = false;
+        //    }
+        //}
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox4.Checked == true)
-            {
-                variavel.ESPAmigo = true;
-            }
-            else
-            {
-                variavel.ESPAmigo = false;
-            }
-        }
+        //private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox4.Checked == true)
+        //    {
+        //        variavel.ESPAmigo = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.ESPAmigo = false;
+        //    }
+        //}
 
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox7.Checked == true)
-            {
-                variavel.Aimbot = true;
-            }
-            else
-            {
-                variavel.Aimbot = false;
-            }
-        }
+        //private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox7.Checked == true)
+        //    {
+        //        variavel.Aimbot = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.Aimbot = false;
+        //    }
+        //}
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            DisableButton();
-            currentBtn = button4;
-            ActivateButton(sender, RGBColors.color4);
-            label1.Text = "FUNCTIONS";
-            esp.Visible = false;
-            aimbot.Visible = false;
-            functions.Visible = false;
-            configpanel.Visible = true;
-        }
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    DisableButton();
+        //    currentBtn = button4;
+        //    ActivateButton(sender, RGBColors.color4);
+        //    label1.Text = "FUNCTIONS";
+        //    esp.Visible = false;
+        //    aimbot.Visible = false;
+        //    functions.Visible = false;
+        //    configpanel.Visible = true;
+        //}
 
-        private void button5_Click(object sender, EventArgs e)
-        {
+        //private void button5_Click(object sender, EventArgs e)
+        //{
 
-            bool isNotepadRunning = Process.GetProcessesByName("ac_client").Length > 0;
-            if (isNotepadRunning)
-            {
-               formulado = new Form1();
-                formulado.Show();
-            }
-            else
-            {
-                MessageBox.Show("Abra o game.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //    bool isNotepadRunning = Process.GetProcessesByName("ac_client").Length > 0;
+        //    if (isNotepadRunning)
+        //    {
+        //       formulado = new Form1();
+        //        formulado.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Abra o game.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -255,36 +251,48 @@ namespace ACMenu2
             pos = Control.MousePosition;
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        //private void label3_Click(object sender, EventArgs e)
+        //{
+        //    this.WindowState = FormWindowState.Minimized;
+        //}
 
-        private void checkBox9_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (checkBox9.Checked == true)
-            {
+        //private void checkBox9_CheckedChanged_1(object sender, EventArgs e)
+        //{
+        //    if (checkBox9.Checked == true)
+        //    {
 
-                formulado.balasin(true);
-            }
-            else
-            {
-                formulado.balasin(false);
-            }
-        }
+        //        formulado.balasin(true);
+        //    }
+        //    else
+        //    {
+        //        formulado.balasin(false);
+        //    }
+        //}
 
-        private void checkBox8_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox8.Checked == true)
-            {
+        //private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox8.Checked == true)
+        //    {
 
-                formulado.vidain(true);
-            }
-            else
-            {
-                formulado.vidain(false);
-            }
-        }
+        //        formulado.vidain(true);
+        //    }
+        //    else
+        //    {
+        //        formulado.vidain(false);
+        //    }
+        //}
+
+        //private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox10.Checked == true)
+        //    {
+        //        variavel.esplinetop = true;
+        //    }
+        //    else
+        //    {
+        //        variavel.esplinetop = false;
+        //    }
+        //}
     }
 }
 

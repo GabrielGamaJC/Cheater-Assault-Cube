@@ -41,7 +41,11 @@ C:\Users\gabri\source\repos\ACMenu2 - Copia (2)\ACMenu2\obj\Release\net6.0-windo
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2)\ACMenu2\obj\Release\net6.0-windows\ACMenu2.genruntimeconfig.cache
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2)\ACMenu2\obj\Release\net6.0-windows\ref\ACMenu2.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.exe
+C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.deps.json
+C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.runtimeconfig.json
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.dll
+C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.pdb
+C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\MaterialSkin.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\swed32.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ezOverLay.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ACMenu2.csproj.AssemblyReference.cache
@@ -57,8 +61,6 @@ C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ACMenu2.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\refint\ACMenu2.dll
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ACMenu2.pdb
-C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.deps.json
-C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.runtimeconfig.json
-C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\bin\Release\net6.0-windows\ACMenu2.pdb
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ACMenu2.genruntimeconfig.cache
 C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ref\ACMenu2.dll
+C:\Users\gabri\source\repos\ACMenu2 - Copia (2) - Copia\ACMenu2\obj\Release\net6.0-windows\ACMenu2.Menu2.resources
