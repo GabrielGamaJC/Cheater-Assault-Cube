@@ -15,9 +15,9 @@ Menu feito via painel.
 <div align="center">
 <img src="https://i.imgur.com/fdFOc5P.png" width="700px" />
 
-<img src="https://i.imgur.com/p3N0P0J.png" width="700px" />
+<img src="https://i.imgur.com/QaBllN0.png" width="700px" />
 
-<img src="https://i.imgur.com/TErYR3J.png" width="700px" />
+<img src="https://i.imgur.com/J53ewyW.png" width="700px" />
 
 <img src="https://i.imgur.com/K2HfwtG.png" width="700px" />
 
