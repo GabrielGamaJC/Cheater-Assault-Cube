@@ -13,8 +13,6 @@ Menu feito via painel.
 
 
 <div align="center">
-<img src="https://i.imgur.com/fdFOc5P.png" width="700px" />
-
 <img src="https://i.imgur.com/QaBllN0.png" width="700px" />
 
 <img src="https://i.imgur.com/J53ewyW.png" width="700px" />
