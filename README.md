@@ -1,7 +1,8 @@
 # Cheater-Assault-Cube
-
+Basicamente o mesmo loader que está no meu perfil, porém com mudança do layout das funções.
 
 Menu Cheater Assault Cube ESP, AIMBOT.
+
 
 Menu feito via painel.
 ##
